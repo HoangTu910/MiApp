@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:miapp/config/route/route.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,34 +12,21 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _auth = FirebaseAuth.instance;
-  bool _isLoading = false; // Add this
-
+  
   Future<void> _login() async {
-    if (_isLoading) return; // Prevent multiple clicks
-    
-    setState(() => _isLoading = true);
-    try {
-      final userCredential = await _auth.signInWithEmailAndPassword(
-        email: _emailController.text.trim(), // Add trim() to remove whitespace
-        password: _passwordController.text.trim(),
+    const validEmail = "test@test.com";
+    const validPassword = "123456";
+
+    if (_emailController.text == validEmail && 
+        _passwordController.text == validPassword) {
+      context.push(AppRoute.main); // Update your route configuration
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Invalid email or password'),
+          backgroundColor: Colors.red,
+        ),
       );
-      if (userCredential.user != null && mounted) { // Check if widget is still mounted
-        context.push(AppRoute.main);
-      }
-    } on FirebaseAuthException catch (e) {
-      if (mounted) { // Check if widget is still mounted
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(e.message ?? 'Authentication failed'),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
-    } finally {
-      if (mounted) {
-        setState(() => _isLoading = false);
-      }
     }
   }
 
