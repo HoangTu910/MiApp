@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "293880461791",
+    "project_id": "cloud-aiot",
+    "storage_bucket": "cloud-aiot.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293880461791:android:c14482c6fae704de932c6a",
+        "android_client_info": {
+          "package_name": "miapp.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvqRSpG3Cja9uAwAq6Rtpy76PGCqQ2lCQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

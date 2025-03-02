@@ -1,0 +1,1 @@
+{"flutter":{"platforms":{"android":{"default":{"projectId":"cloud-aiot","appId":"1:293880461791:android:c14482c6fae704de932c6a","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"cloud-aiot","configurations":{"android":"1:293880461791:android:c14482c6fae704de932c6a"}}}}}}
